@@ -30,6 +30,9 @@ void vectors::vectorsMain()
   printArray(practiceArray);
   practiceArray[10] = arrayInsertDelete(practiceArray);
   printArray(practiceArray);
+  cout << "Algorithms : " << endl;
+  cout << "Merge Sort" << endl;
+  mergeSort(msVector, 0, 6);
   return;
 }
 
@@ -99,4 +102,72 @@ int vectors::arrayInsertDelete(int practiceArray[10])
   practiceArray[9] = 0;
   cout << "added 9 to 2nd position in array and deleted the 4th position" << endl;
   return practiceArray[10];
+}
+
+void vectors::mergeSortMerge(int *msVector, int start, int middle, int end)
+{
+  int i, j, k;
+  int n1 = middle - start + 1;
+  int n2 = end - middle;
+  //temporary vectors
+  vector<int> l;
+  vector<int> r;
+
+  //copy elements into temp Arrays
+  for(i = 0; i < n1; i++)
+  {
+    l.push_back(msVector[start+i]);
+  }
+  for(j = 0; j < n2; j++)
+  {
+    r.push_back(msVector[middle + 1 + j]);
+  }
+
+  //merge temporary vectors back into msVector sorted
+  i = 0;
+  j = 0;
+  k = 1;
+  while (i < n1 && j < n2)
+  {
+    if(l[i] <= r[j])
+    {
+      msVector[k] = l[i];
+      i++;
+    }
+    else
+    {
+      msVector[k] = r[j];
+      j++;
+    }
+    k++;
+  }
+  //put remaining elements of l[] and r[] back into msVector
+  while(i < n1)
+  {
+    msVector[k] = l[i];
+    i++;
+    k++;
+  }
+  while(j < n2)
+  {
+    msVector[k] = r[i];
+    j++;
+    k++;
+  }
+}
+
+void vectors::mergeSort(int *msVector, int start, int end)
+{
+  int middle;
+  if(start < end)
+  {
+    //Obtain middle of vector without overflow
+    middle = (start + end)/ 2;
+    //Sort first and second halves
+    mergeSort(msVector,start,middle);
+    mergeSort(msVector,middle+1,end);
+
+    mergeSortMerge(msVector,start,middle,end);
+  }
+
 }

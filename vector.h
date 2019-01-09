@@ -15,6 +15,9 @@ class vectors
     std::vector<int> insertAt(std::vector<int> practiceVec);
     std::vector<int> deleteElement(std::vector<int> practiceVec);
     int arrayInsertDelete(int practiceArray[10]);
+    void mergeSortMerge(int *msVector, int start, int middle, int end);
+    void mergeSort(int *msVector, int start, int end);
+    int msVector[7] = {38,27,43,3,9,82,10};
   protected:
   private:
 };
