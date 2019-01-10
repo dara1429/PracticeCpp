@@ -1,10 +1,12 @@
 #include "vector.h"
+#include "tree.h"
 #include <iostream>
 using namespace std;
 
 int main () {
     // inits
     vectors v;
+    tree t;
     // menu
     int command = 0;
     while(command != 8)
@@ -31,6 +33,9 @@ int main () {
       {
         case 1:
           v.vectorsMain();
+          break;
+        case 2:
+          t.treeMain();
           break;
         case 8:
           cout << "Bye" << endl;

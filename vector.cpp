@@ -32,7 +32,7 @@ void vectors::vectorsMain()
   printArray(practiceArray);
   cout << "Algorithms : " << endl;
   cout << "Merge Sort" << endl;
-  mergeSort(msVector, 0, 6);
+  //mergeSort(msVector, 0, 6);
   return;
 }
 
