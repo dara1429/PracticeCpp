@@ -1,5 +1,6 @@
 #include "vector.h"
 #include "tree.h"
+#include "hash.h"
 #include <iostream>
 using namespace std;
 
@@ -7,6 +8,7 @@ int main () {
     // inits
     vectors v;
     tree t;
+    hashes h;
     // menu
     int command = 0;
     while(command != 8)
@@ -36,6 +38,9 @@ int main () {
           break;
         case 2:
           t.treeMain();
+          break;
+        case 3:
+          h.hashMain();
           break;
         case 8:
           cout << "Bye" << endl;
