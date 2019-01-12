@@ -1,6 +1,7 @@
 #include "vector.h"
 #include "tree.h"
 #include "hash.h"
+#include "struc.h"
 #include <iostream>
 using namespace std;
 
@@ -9,6 +10,7 @@ int main () {
     vectors v;
     tree t;
     hashes h;
+    struc s;
     // menu
     int command = 0;
     while(command != 8)
@@ -41,6 +43,9 @@ int main () {
           break;
         case 3:
           h.hashMain();
+          break;
+        case 4:
+          s.strucMain();
           break;
         case 8:
           cout << "Bye" << endl;
