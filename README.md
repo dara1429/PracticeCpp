@@ -36,3 +36,10 @@ Outline -
   
     a. add/remove
     
+    b. priority queue
+    
+  7. Linked Lists
+  
+    a. add/remove node
+    
+    b. traverse/manage links
