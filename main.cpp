@@ -2,6 +2,7 @@
 #include "tree.h"
 #include "hash.h"
 #include "struc.h"
+#include "heap.h"
 #include <iostream>
 using namespace std;
 
@@ -11,6 +12,7 @@ int main () {
     tree t;
     hashes h;
     struc s;
+    heap he;
     // menu
     int command = 0;
     while(command != 8)
@@ -46,6 +48,9 @@ int main () {
           break;
         case 4:
           s.strucMain();
+          break;
+        case 5:
+          he.heapBasics();
           break;
         case 8:
           cout << "Bye" << endl;

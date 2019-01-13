@@ -18,6 +18,11 @@ void vectors::vectorsMain()
   vector<int> practiceVec = {2,3,9,6,1};
   int practiceArray[10] = {1,5,8,4,3,0,0,0,0,0};
   cout << "Vectors : " << endl;
+
+  cout << "condensed vector traversal : " << endl;
+  for(int &x : practiceVec){cout << x << " ";}
+  cout << endl;
+
   practiceVec = addElement(practiceVec);
   printVector(practiceVec);
   practiceVec = insertElement(practiceVec);
@@ -26,6 +31,7 @@ void vectors::vectorsMain()
   printVector(practiceVec);
   practiceVec = deleteElement(practiceVec);
   printVector(practiceVec);
+
   cout << "Arrays : " << endl;
   printArray(practiceArray);
   practiceArray[10] = arrayInsertDelete(practiceArray);
@@ -33,6 +39,7 @@ void vectors::vectorsMain()
   cout << "Algorithms : " << endl;
   cout << "Merge Sort" << endl;
   mergeSort(msVector, 0, 6);
+  
   return;
 }
 

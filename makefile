@@ -1,8 +1,8 @@
 CPP = g++
 CFLAGS = -std=c++11 -Wall
 
-practice: main.o vector.o tree.o hash.o struc.o
-	$(CPP) $(CFLAGS) main.o vector.o tree.o hash.o struc.o -o practice
+practice: main.o vector.o tree.o hash.o struc.o heap.o
+	$(CPP) $(CFLAGS) main.o vector.o tree.o hash.o struc.o heap.o -o practice
 
 main.o: main.cpp
 	$(CPP) -c main.cpp
@@ -18,6 +18,9 @@ hash.o: hash.cpp hash.h
 
 struc.o: struc.cpp struc.h
 	$(CPP) -c struc.cpp
+
+heap.o: heap.cpp heap.h
+	$(CPP) -c heap.cpp
 
 clean:
 	rm *.o practice
