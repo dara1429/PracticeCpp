@@ -3,6 +3,7 @@
 #include "hash.h"
 #include "struc.h"
 #include "heap.h"
+#include "que.h"
 #include <iostream>
 using namespace std;
 
@@ -13,6 +14,7 @@ int main () {
     hashes h;
     struc s;
     heap he;
+    que q;
     // menu
     int command = 0;
     while(command != 8)
@@ -50,7 +52,11 @@ int main () {
           s.strucMain();
           break;
         case 5:
-          he.heapBasics();
+          he.heapMain();
+          break;
+        case 6:
+          q.queMain();
+          q.stackMain();
           break;
         case 8:
           cout << "Bye" << endl;

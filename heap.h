@@ -7,7 +7,7 @@ class heap
   public:
     heap();
     ~heap();
-    void heapBasics();
+    void heapMain();
   private:
   protected:
 

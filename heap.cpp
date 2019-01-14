@@ -15,7 +15,7 @@ heap::~heap()
   //deinit
 }
 
-void heap::heapBasics()
+void heap::heapMain()
 {
   vector<int> v1 = {1,6,11,3,5};
   vector<int> v2 = {12,10,5,4,1};
