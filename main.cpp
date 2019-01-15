@@ -4,6 +4,7 @@
 #include "struc.h"
 #include "heap.h"
 #include "que.h"
+#include "llist.h"
 #include <iostream>
 using namespace std;
 
@@ -15,6 +16,7 @@ int main () {
     struc s;
     heap he;
     que q;
+    llist l;
     // menu
     int command = 0;
     while(command != 8)
@@ -57,6 +59,9 @@ int main () {
         case 6:
           q.queMain();
           q.stackMain();
+          break;
+        case 7:
+          l.llistMain();
           break;
         case 8:
           cout << "Bye" << endl;
