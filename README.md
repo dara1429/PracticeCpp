@@ -43,3 +43,9 @@ Outline -
     a. add/remove node
     
     b. traverse/manage links
+    
+  8. Graphs
+    
+    a. directed
+    
+    b. undirected
