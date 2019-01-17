@@ -1,6 +1,6 @@
 CPP = g++
 CFLAGS = -std=c++11 -Wall
-FILES = main.o vector.o tree.o hash.o struc.o heap.o que.o llist.o
+FILES = main.o vector.o tree.o hash.o struc.o heap.o que.o llist.o graph.o
 
 practice: $(FILES)
 	$(CPP) $(CFLAGS) $(FILES) -o practice
@@ -28,6 +28,9 @@ que.o: que.cpp que.h
 
 llist.o: llist.cpp llist.h
 	$(CPP) -c llist.cpp
+
+graph.o: graph.cpp graph.h
+	$(CPP) -c graph.cpp
 
 clean:
 	rm *.o practice

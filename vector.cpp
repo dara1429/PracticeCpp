@@ -17,6 +17,7 @@ void vectors::vectorsMain()
 {
   vector<int> practiceVec = {2,3,9,6,1};
   int practiceArray[10] = {1,5,8,4,3,0,0,0,0,0};
+  int msArray[7] = {38,27,43,3,9,82,10};
   cout << "Vectors : " << endl;
 
   cout << "condensed vector traversal : " << endl;
@@ -37,9 +38,11 @@ void vectors::vectorsMain()
   practiceArray[10] = arrayInsertDelete(practiceArray);
   printArray(practiceArray);
   cout << "Algorithms : " << endl;
+  printArray2(msArray);
   cout << "Merge Sort" << endl;
-  mergeSort(msVector, 0, 6);
-  
+  mergeSort(msArray, 0, 6);
+  printArray2(msArray);
+
   return;
 }
 
@@ -62,6 +65,17 @@ void vectors::printArray(int practiceArray[10])
   cout << endl;
   return;
 }
+
+void vectors::printArray2(int msArray[7])
+{
+  for(int i = 0; i < 7; i++)
+  {
+    cout << msArray[i] << ",";
+  }
+  cout << endl;
+  return;
+}
+
 vector<int> vectors::addElement(vector<int> practiceVec)
 {
   int input = 5;
@@ -111,70 +125,56 @@ int vectors::arrayInsertDelete(int practiceArray[10])
   return practiceArray[10];
 }
 
-void vectors::mergeSortMerge(int *msVector, int start, int middle, int end)
+void vectors::mergeSortMerge(int *msArray, int start, int middle, int end)
 {
-  int i, j, k;
-  int n1 = middle - start + 1;
-  int n2 = end - middle;
-  //temporary vectors
-  vector<int> l;
-  vector<int> r;
+  int i = start;
+  int j = middle + 1;
+  int k = 0;
 
-  //copy elements into temp Arrays
-  for(i = 0; i < n1; i++)
-  {
-    l.push_back(msVector[start+i]);
-  }
-  for(j = 0; j < n2; j++)
-  {
-    r.push_back(msVector[middle + 1 + j]);
-  }
+  //temporary array
+  int *temp = new int[end-start+1];
 
-  //merge temporary vectors back into msVector sorted
-  i = 0;
-  j = 0;
-  k = 1;
-  while (i < n1 && j < n2)
+  while (i <= middle && j <= end)
   {
-    if(l[i] <= r[j])
+    if(msArray[i] <= msArray[j])
     {
-      msVector[k] = l[i];
-      i++;
+      temp[k++] = msArray[i++];
     }
     else
     {
-      msVector[k] = r[j];
-      j++;
+      temp[k++] = msArray[j++];
     }
-    k++;
   }
-  //put remaining elements of l[] and r[] back into msVector
-  while(i < n1)
+  //put remaining elements of temporary array back into msArray
+  while(i <= middle)
   {
-    msVector[k] = l[i];
-    i++;
-    k++;
+    temp[k++] = msArray[i++];
   }
-  while(j < n2)
+  while(j <= end)
   {
-    msVector[k] = r[i];
-    j++;
-    k++;
+    temp[k++] = msArray[j++];
   }
+  //copy newly merged temporary array back into msArray
+  for(k = 0, i = start; i <= end; ++i, ++k)
+  {
+    msArray[i] = temp[k];
+  }
+  delete []temp;
 }
 
-void vectors::mergeSort(int *msVector, int start, int end)
+void vectors::mergeSort(int *msArray, int start, int end)
 {
   int middle;
   if(start < end)
   {
     //Obtain middle of vector without overflow
-    middle = (start + end)/ 2;
+    middle = (start + end) / 2;
     //Sort first and second halves
-    mergeSort(msVector,start,middle);
-    mergeSort(msVector,middle+1,end);
+    mergeSort(msArray,start,middle);
+    mergeSort(msArray,middle+1,end);
 
-    mergeSortMerge(msVector,start,middle,end);
+    mergeSortMerge(msArray,start,middle,end);
   }
+  return;
 
 }

@@ -5,6 +5,7 @@
 #include "heap.h"
 #include "que.h"
 #include "llist.h"
+#include "graph.h"
 #include <iostream>
 using namespace std;
 
@@ -17,9 +18,12 @@ int main () {
     heap he;
     que q;
     llist l;
+    //number of verticies in graph.
+    int n = 7;
+    graph g(n);
     // menu
     int command = 0;
-    while(command != 8)
+    while(command != 9)
     {
 
       cout << "\n" << "Menu : " << endl;
@@ -30,7 +34,8 @@ int main () {
       cout << "5. Heaps" << endl;
       cout << "6. Queues and Stacks" << endl;
       cout << "7. Linked Lists" << endl;
-      cout << "8. Exit Program" << "\n" << endl;
+      cout << "8. Graphs" << endl;
+      cout << "9. Exit Program" << "\n" << endl;
 
       cin >> command;
       if(cin.fail())
@@ -64,6 +69,9 @@ int main () {
           l.llistMain();
           break;
         case 8:
+          g.graphPrint(g,n);
+          break;
+        case 9:
           cout << "Bye" << endl;
           break;
         default:

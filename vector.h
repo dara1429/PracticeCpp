@@ -10,14 +10,14 @@ class vectors
     void vectorsMain();
     void printVector(std::vector<int> practiceVec);
     void printArray(int practiceArray[10]);
+    void printArray2(int msArray[7]);
     std::vector<int> addElement(std::vector<int> practiceVec);
     std::vector<int> insertElement(std::vector<int> practiceVec);
     std::vector<int> insertAt(std::vector<int> practiceVec);
     std::vector<int> deleteElement(std::vector<int> practiceVec);
     int arrayInsertDelete(int practiceArray[10]);
-    void mergeSortMerge(int *msVector, int start, int middle, int end);
-    void mergeSort(int *msVector, int start, int end);
-    int msVector[7] = {38,27,43,3,9,82,10};
+    void mergeSortMerge(int *msArray, int start, int middle, int end);
+    void mergeSort(int *msArray, int start, int end);
   protected:
   private:
 };
