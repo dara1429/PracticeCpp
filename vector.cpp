@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <tuple>
 using namespace std;
 vectors::vectors()
 {
@@ -42,6 +43,13 @@ void vectors::vectorsMain()
   cout << "Merge Sort" << endl;
   mergeSort(msArray, 0, 6);
   printArray2(msArray);
+  cout << "Swap numbers with no temp : " << endl;
+  vector<tuple<int,int>> swapVector;
+  int a = 5;
+  int b = 2;
+  swapVector = notempSwap(a,b);
+  cout << a << " : " << b << endl;
+  cout << get<0>(swapVector[0]) << " : " << get<1>(swapVector[0]) << endl;
 
   return;
 }
@@ -177,4 +185,15 @@ void vectors::mergeSort(int *msArray, int start, int end)
   }
   return;
 
+}
+
+vector<tuple<int,int>> vectors::notempSwap(int a, int b)
+{
+  vector<tuple<int,int>> swapVector;
+  //swap two numbers without any temp arrays etc.
+  a = a - b;
+  b = b + a;
+  a = b - a;
+  swapVector.push_back(make_tuple(a,b));
+  return swapVector;
 }

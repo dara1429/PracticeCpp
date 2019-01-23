@@ -18,6 +18,7 @@ class vectors
     int arrayInsertDelete(int practiceArray[10]);
     void mergeSortMerge(int *msArray, int start, int middle, int end);
     void mergeSort(int *msArray, int start, int end);
+    std::vector<std::tuple<int,int>> notempSwap(int a, int b);
   protected:
   private:
 };
