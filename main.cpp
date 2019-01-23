@@ -19,7 +19,7 @@ int main () {
     que q;
     llist l;
     //number of verticies in graph.
-    int n = 7;
+    int n = 9;
     graph g(n);
     // menu
     int command = 0;
@@ -70,6 +70,7 @@ int main () {
           break;
         case 8:
           g.graphPrint(g,n);
+          g.dijkstra();
           break;
         case 9:
           cout << "Bye" << endl;
