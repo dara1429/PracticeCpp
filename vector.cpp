@@ -18,7 +18,12 @@ void vectors::vectorsMain()
 {
   vector<int> practiceVec = {2,3,9,6,1};
   int practiceArray[10] = {1,5,8,4,3,0,0,0,0,0};
+  int practiceArraySize = sizeof(practiceArray)/sizeof(practiceArray[0]);
   int msArray[7] = {38,27,43,3,9,82,10};
+  int msArraySize = sizeof(msArray)/sizeof(msArray[0]);
+  int qsArray[8] = {10,80,30,90,40,50,70,20};
+  int qsArraySize = sizeof(qsArray)/sizeof(qsArray[0]);
+
   cout << "Vectors : " << endl;
 
   cout << "condensed vector traversal : " << endl;
@@ -35,14 +40,18 @@ void vectors::vectorsMain()
   printVector(practiceVec);
 
   cout << "Arrays : " << endl;
-  printArray(practiceArray);
+  printArray(practiceArray,practiceArraySize);
   practiceArray[10] = arrayInsertDelete(practiceArray);
-  printArray(practiceArray);
+  printArray(practiceArray,practiceArraySize);
+
   cout << "Algorithms : " << endl;
-  printArray2(msArray);
   cout << "Merge Sort" << endl;
+  cout << "Before : ";
+  printArray(msArray,msArraySize);
   mergeSort(msArray, 0, 6);
-  printArray2(msArray);
+  cout << "After : ";
+  printArray(msArray,msArraySize);
+
   cout << "Swap numbers with no temp : " << endl;
   vector<tuple<int,int>> swapVector;
   int a = 5;
@@ -50,6 +59,13 @@ void vectors::vectorsMain()
   swapVector = notempSwap(a,b);
   cout << a << " : " << b << endl;
   cout << get<0>(swapVector[0]) << " : " << get<1>(swapVector[0]) << endl;
+
+  cout << "Quicksort on array : " << endl;
+  cout << "Before : ";
+  printArray(qsArray,qsArraySize);
+  quickSort(qsArray,0,7);
+  cout << "After : ";
+  printArray(qsArray,qsArraySize);
 
   return;
 }
@@ -64,21 +80,11 @@ void vectors::printVector(vector<int> practiceVec)
   return;
 }
 
-void vectors::printArray(int practiceArray[10])
+void vectors::printArray(int arr[], int size)
 {
-  for(int i = 0; i < 10; i++)
+  for(int i = 0; i < size; i++)
   {
-    cout << practiceArray[i] << ",";
-  }
-  cout << endl;
-  return;
-}
-
-void vectors::printArray2(int msArray[7])
-{
-  for(int i = 0; i < 7; i++)
-  {
-    cout << msArray[i] << ",";
+    cout << arr[i] << ",";
   }
   cout << endl;
   return;
@@ -196,4 +202,42 @@ vector<tuple<int,int>> vectors::notempSwap(int a, int b)
   a = b - a;
   swapVector.push_back(make_tuple(a,b));
   return swapVector;
+}
+
+void vectors::arraySwap(int* a, int* b)
+{
+  int t = *a;
+  *a = *b;
+  *b = t;
+}
+
+int vectors::quickSortPart(int *qsArray, int low, int high)
+{
+  //using last element in array as pivot.
+  int pivot = qsArray[high];
+  //index of smaller element
+  int i = (low - 1);
+
+  for(int j = low; j <= high - 1; j++)
+  {
+    if(qsArray[j] <= pivot)
+    {
+      i++;
+      arraySwap(&qsArray[i], &qsArray[j]);
+    }
+  }
+  arraySwap(&qsArray[i+1], &qsArray[high]);
+  return (i + 1);
+}
+
+void vectors::quickSort(int *qsArray, int low, int high)
+{
+  if(low < high)
+  {
+    int pIndex = quickSortPart(qsArray,low,high);
+
+    quickSort(qsArray,low, pIndex - 1);
+    quickSort(qsArray,pIndex + 1, high);
+  }
+  return;
 }
