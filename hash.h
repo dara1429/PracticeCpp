@@ -5,6 +5,7 @@ class hashes
   public:
     hashes();
     ~hashes();
+    //hashmap functions
     void hashMain();
     void insertDeleteFind();
     void traversal();
@@ -14,4 +15,4 @@ class hashes
 
 };
 
-#endif
+#endif //HASH_H

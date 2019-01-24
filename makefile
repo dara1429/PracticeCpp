@@ -1,6 +1,6 @@
 CPP = g++
 CFLAGS = -std=c++11 -Wall
-FILES = main.o vector.o tree.o hash.o struc.o heap.o que.o llist.o graph.o
+FILES = main.o vector.o tree.o hash.o hashe.o hasht.o struc.o heap.o que.o llist.o graph.o
 
 practice: $(FILES)
 	$(CPP) $(CFLAGS) $(FILES) -o practice
@@ -16,6 +16,12 @@ tree.o: tree.cpp tree.h
 
 hash.o: hash.cpp hash.h
 	$(CPP) -c hash.cpp
+
+hashe.o: hashe.cpp hashe.h
+	$(CPP) -c hashe.cpp
+
+hasht.o: hasht.cpp hasht.h
+	$(CPP) -c hasht.cpp
 
 struc.o: struc.cpp struc.h
 	$(CPP) -c struc.cpp

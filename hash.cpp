@@ -11,11 +11,12 @@ hashes::hashes()
 
 hashes::~hashes()
 {
-  //dec
+  //deinit
 }
 
 void hashes::hashMain()
 {
+  cout << "Hash Map : " << endl;
   //traversal using iterator (unordered map)
   traversal();
 

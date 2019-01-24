@@ -1,6 +1,7 @@
 #include "vector.h"
 #include "tree.h"
 #include "hash.h"
+#include "hasht.h"
 #include "struc.h"
 #include "heap.h"
 #include "que.h"
@@ -14,6 +15,7 @@ int main () {
     vectors v;
     tree t;
     hashes h;
+    hashT ht;
     struc s;
     heap he;
     que q;
@@ -54,6 +56,7 @@ int main () {
           break;
         case 3:
           h.hashMain();
+          ht.hashtMain();
           break;
         case 4:
           s.strucMain();
