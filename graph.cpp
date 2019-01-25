@@ -1,5 +1,6 @@
 #include "graph.h"
 #include <limits.h>
+#include <list>
 using namespace std;
 
 
@@ -119,4 +120,40 @@ void graph::dijkstra()
     cout << i << " -> " << dist[i] << endl;
   }
   return;
+}
+
+void graph::bfs(graph const &graph, int source)
+{
+  int numVerticies = 9;
+  bool *visited = new bool[numVerticies];
+
+  for(int i = 0; i < numVerticies; i++)
+  {
+		visited[i] = false;
+  }
+
+  list<int> queue;
+
+  //set current node as visited and put in queue
+  visited[source] = true;
+  //queue.push_back(adjList[source][0]);
+  //cout << graph.adjList[source] << endl;
+
+  while(!queue.empty())
+  {
+    //pop queue and print
+    source = queue.front();
+    cout << source << " ";
+    queue.pop_front();
+
+    //see if current vert has adj verts and queue them
+    for(int i = 0; i < adjList.size() ;i++)
+    {
+      if(visited[i] == false)
+      {
+        visited[i] = true;
+        queue.push_back(i);
+      }
+    }
+  }
 }

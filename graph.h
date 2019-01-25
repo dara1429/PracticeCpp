@@ -21,6 +21,7 @@ class graph
     void graphPrint(graph const &graph, int n);
     int dijkstraMinDistance(int dist[], bool shortestPath[]);
     void dijkstra();
+    void bfs(graph const &graph, int source);
   private:
     // vector of Pairs to make edge list of every vert.
     std::vector<std::vector<Pair>> adjList;

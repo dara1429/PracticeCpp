@@ -74,6 +74,7 @@ int main () {
         case 8:
           g.graphPrint(g,n);
           g.dijkstra();
+          g.bfs(g,0);
           break;
         case 9:
           cout << "Bye" << endl;
