@@ -31,6 +31,9 @@ graph::graph(int n)
     //insert at the end (Use second line below for an undirected graph).
     adjList[vert].push_back(make_pair(destination,weight));
     //adjList[vert].push_back(make_pair(vert,weight));
+
+    //insert edges to adjList2
+    adjList2[vert].push_back(destination);
   }
 }
 
@@ -124,6 +127,8 @@ void graph::dijkstra()
 
 void graph::bfs(graph const &graph, int source)
 {
+  cout << "BFS on graph : " << endl;
+
   int numVerticies = 9;
   bool *visited = new bool[numVerticies];
 
@@ -136,8 +141,9 @@ void graph::bfs(graph const &graph, int source)
 
   //set current node as visited and put in queue
   visited[source] = true;
-  //queue.push_back(adjList[source][0]);
-  //cout << graph.adjList[source] << endl;
+  queue.push_back(adjList2[source][0]);
+
+  vector<int>::iterator it;
 
   while(!queue.empty())
   {
@@ -147,12 +153,12 @@ void graph::bfs(graph const &graph, int source)
     queue.pop_front();
 
     //see if current vert has adj verts and queue them
-    for(int i = 0; i < adjList.size() ;i++)
+    for(it = adjList2[source].begin(); it < adjList2[source].end() ;it++)
     {
-      if(visited[i] == false)
+      if(visited[*it] == false)
       {
-        visited[i] = true;
-        queue.push_back(i);
+        visited[*it] = true;
+        queue.push_back(*it);
       }
     }
   }

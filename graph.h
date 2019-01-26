@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <list>
 
 struct edge
 {
@@ -25,6 +26,7 @@ class graph
   private:
     // vector of Pairs to make edge list of every vert.
     std::vector<std::vector<Pair>> adjList;
+    std::vector<int> adjList2[9];
   protected:
 
 };

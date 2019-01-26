@@ -58,6 +58,9 @@ void que::queMain()
     quCopy.pop();
   }
 
+  //Priority Queues
+  prioQue();
+
   return;
 }
 
@@ -95,4 +98,32 @@ void que::stackMain()
 
 
   return;
+}
+
+void que::prioQue()
+{
+  priority_queue <int> pque;
+  pque.push(5);
+  pque.push(10);
+  pque.push(40);
+  pque.push(80);
+  pque.push(30);
+  pque.push(25);
+  pque.push(55);
+
+  cout << endl;
+  cout << "Priority Queue : " << endl;
+  cout << "Size = " << pque.size() << endl;
+  cout << "Top = " << pque.top() << endl;
+
+  pque.pop();
+  cout << "Listing priority queue after pop() : " << endl;
+
+  priority_queue<int> printQ = pque;
+  while(!printQ.empty())
+  {
+    cout << printQ.top() << ",";
+    printQ.pop();
+  }
+  cout << endl;
 }

@@ -8,6 +8,7 @@ class que
     ~que();
     void queMain();
     void stackMain();
+    void prioQue();
   private:
   protected:
 };
