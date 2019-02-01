@@ -162,4 +162,5 @@ void graph::bfs(graph const &graph, int source)
       }
     }
   }
+  delete[] visited;
 }

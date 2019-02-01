@@ -11,7 +11,13 @@ llist::llist()
 
 llist::~llist()
 {
-  //deinit
+    node* del = head;
+    while(del != NULL)
+    {
+      node* next = del->next;
+      delete del;
+      del = next;
+    }
 }
 
 void llist::llistMain()
@@ -68,9 +74,8 @@ void llist::llistInsert(int value, int option)
   //insert node in the middle of the list (position in this example is 4th)
   else if(option == 1)
   {
-    node *after = new node;
-    node *before = new node;
-    after = head;
+    node *after = head;
+    node *before = NULL;
     for(int i = 0; i < position-1; i++)
     {
       before = after;
@@ -86,22 +91,20 @@ void llist::llistInsert(int value, int option)
 
 void llist::llistDelete(int option)
 {
-  node *temp = new node;
+  node *temp = head;
   int position = 2;
 
   //delete head of linked list
   if(option == 0)
   {
-    temp = head;
     head = head->next;
     delete temp;
   }
   //delete tail of the linked list (much easier with doubly linked)
   else if(option == 1)
   {
-    node *current = new node;
-    node *previous = new node;
-    current = head;
+    node *current = head;
+    node *previous = current;
     while(current->next != NULL)
     {
       previous = current;
@@ -114,10 +117,8 @@ void llist::llistDelete(int option)
   //delete node in the middle of the linked list (position 2nd for example)
   else
   {
-    cout << "gig" << endl;
-    node *current = new node;
-    node *previous = new node;
-    current = head;
+    node *current = head;
+    node *previous = current;
     for(int i = 0; i < position-1; i++)
     {
       previous = current;
@@ -128,16 +129,17 @@ void llist::llistDelete(int option)
   }
   return;
 }
+
 void llist::llistPrint(node *head)
 {
   cout << "Printing linked list : " << endl;
-  node *temp = new node;
-  temp = head;
+  node *temp = head;
   while(temp != NULL)
   {
     cout << temp->value << " -> ";
     temp = temp->next;
   }
   cout << "NULL" << endl;
+  delete temp;
   return;
 }

@@ -184,7 +184,7 @@ struct treeNode* tree::deleteNode(int value, struct treeNode *leaf)
     if(leaf->left == NULL)
     {
       struct treeNode *temp = leaf->right;
-      free(leaf);
+      delete(leaf);
       return temp;
     }
     else if(leaf->right == NULL)
